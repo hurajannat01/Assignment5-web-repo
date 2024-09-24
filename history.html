@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation History</title>
+    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #f9f7f3; /* Same color as the donation page */
+            padding: 16px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        main {
+            margin-top: 60px; /* Adjust this to give space for the fixed header */
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-100 p-8">
+    <header class="mb-4">
+        <h1 class="text-2xl font-bold">Donation History</h1>
+    </header>
+    <main id="historyContainer" class="bg-white p-6 rounded-lg shadow-md"></main>
+
+    <script>
+        // Get donation history from localStorage
+        const donationHistory = JSON.parse(localStorage.getItem('donationHistory')) || [];
+
+        // Render donation history
+        const historyContainer = document.getElementById('historyContainer');
+        if (donationHistory.length === 0) {
+            historyContainer.innerHTML = '<p>No donation history available.</p>';
+        } else {
+            donationHistory.forEach(entry => {
+                const entryDiv = document.createElement('div');
+                entryDiv.className = 'p-2 border-b border-gray-300';
+                entryDiv.innerText = `${entry.amount} BDT donated for section ${entry.section} on ${entry.timestamp}`;
+                historyContainer.appendChild(entryDiv);
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+
