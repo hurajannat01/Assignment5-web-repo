@@ -42,7 +42,6 @@
     
     <!-- Donation Sections -->
     <main class="max-w-screen-lg mx-auto">
-        <!-- Donation Sections -->
         <section id="donationSection" class="hidden mt-20 mb-8 flex justify-center px-4 md:px-0 border border-2 rounded-md">
             <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 w-full max-w-screen-lg mt-8">
                 <div class="w-full md:w-1/2 flex justify-center">
@@ -87,13 +86,13 @@
                         </p>
                         <input type="number" id="donationAmount2" class="border p-2 w-[90%] md:w-[450px] mb-4" placeholder="Enter donation amount">
                         <button id="donateNowButton2" class="bg-[#B4F461] text-black p-2 w-[90%] md:w-[450px] rounded-md text-lg mb-8">Donate Now</button>
-                        <    <p id="errorMessage2" class="text-red-500 hidden">Invalid donation amount. Please enter a positive number.</p>
+                        <p id="errorMessage2" class="text-red-500 hidden">Invalid donation amount. Please enter a positive number.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="donationSection" class="hidden mt-20 mb-8 flex justify-center px-4 md:px-0 border border-2 rounded-md">
+        <section id="donationSection3" class="hidden mt-20 mb-8 flex justify-center px-4 md:px-0 border border-2 rounded-md">
             <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4 w-full max-w-screen-lg mt-8">
                 <div class="w-full md:w-1/2 flex justify-center">
                     <img src="assets/quota-protest.png" alt="Flood Image" class="w-full h-full max-w-md object-contain"> 
@@ -101,161 +100,120 @@
                 <div class="w-full md:w-1/2">
                     <div class="mt-4 md:mt-0 text-center md:text-left">
                         <div class="flex items-center justify-center md:justify-start mb-4">
-                            <button id="donationTotalDisplay1" class="bg-gray-100 font-semibold py-2 px-4 rounded-md text-center flex items-center">
+                            <button id="donationTotalDisplay3" class="bg-gray-100 font-semibold py-2 px-4 rounded-md text-center flex items-center">
                                 <img src="assets/coin.png" alt="Currency Icon" class="w-6 h-6 mr-2"> 
                                 <span class="text-gray-700">0 BDT</span>
                             </button>
                         </div>
                         <h1 class="text-[#111111] font-bold text-xl md:text-2xl mb-2">Aid for Injured in the Quota Movement</h1>
                         <p class="font-light text-sm md:text-base mb-4 max-w-[450px] mx-auto md:mx-0">
-                            The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need.
+                            The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that these individuals receive the care and support they need during this difficult time. Your kindness can make a lasting impact on their recovery journey.
                         </p>
-                        <input type="number" id="donationAmount1" class="border p-2 w-[90%] md:w-[450px] mb-4" placeholder="Enter donation amount">
-                        <button id="donateNowButton1" class="bg-[#B4F461] text-black p-2 w-[90%] md:w-[450px] rounded-md text-lg mb-8">Donate Now</button>
-                        <p id="errorMessage1" class="text-red-500 hidden">Invalid donation amount. Please enter a positive number.</p>
+                        <input type="number" id="donationAmount3" class="border p-2 w-[90%] md:w-[450px] mb-4" placeholder="Enter donation amount">
+                        <button id="donateNowButton3" class="bg-[#B4F461] text-black p-2 w-[90%] md:w-[450px] rounded-md text-lg mb-8">Donate Now</button>
+                        <p id="errorMessage3" class="text-red-500 hidden">Invalid donation amount. Please enter a positive number.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-
-    <!-- History Modal -->
-    <div id="historyModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg max-w-lg w-full">
-            <h2 class="text-2xl font-bold mb-4">Donation History</h2>
-            <div id="donationHistory" class="space-y-2 max-h-64 overflow-y-auto"></div>
-            <div class="flex justify-between mt-4">
-                <button id="clearHistoryButton" class="bg-red-500 text-white px-4 py-2 rounded-md">Clear History</button>
-                <button id="closeHistoryModal" class="bg-gray-300 text-black px-4 py-2 rounded-md">Close</button>
+        <!-- Success Modal -->
+        <div id="successModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+            <div class="bg-white rounded-lg p-6 max-w-xs">
+                <h2 class="font-bold text-lg mb-2">Donation Successful!</h2>
+                <p class="mb-4">You have donated <span id="donationSuccessAmount" class="font-bold"></span> BDT.</p>
+                <button id="closeSuccessModal" class="bg-lime-400 text-black px-4 py-2 rounded-md">Close</button>
             </div>
         </div>
-    </div>
 
-    <!-- Success Modal -->
-    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg max-w-lg w-full flex flex-col items-center">
-            <h2 class="text-2xl font-bold mb-4 text-center">Congrats!</h2>
-            <img src="assets/coin.png" alt="Currency Icon" class="w-12 h-12 mb-4"> 
-            <p class="text-center">
-                You have donated successfully.
-            </p>
-            <button id="closeSuccessModal" class="bg-gray-200 font-serif text-gray-900 px-4 py-2 rounded-md mt-4">Close</button>
-        </div>
-    </div>
-
-    <!-- FAQ Section -->
-    <section id="faqSection" class="hidden mt-20 px-4 md:px-0">
-        <h2 class="text-center text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-        <div class="bg-white rounded-lg shadow-lg">
-            <div class="accordion">
-                <div class="accordion-item">
-                    <button class="accordion-header bg-lime-400 text-left w-full p-4 focus:outline-none">
-                        <span>How can I donate?</span>
-                        <span class="accordion-icon text-xl ml-2"><i class="fas fa-chevron-down"></i></span>
-                    </button>
-                    <div class="accordion-body hidden max-h-0 overflow-hidden transition-height duration-300">
-                        <p class="p-4">You can donate using credit/debit cards or bank transfers.</p>
-                    </div>
-                </div>
-                <!-- More FAQs here -->
+        <!-- Donation History Modal -->
+        <div id="historyModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+            <div class="bg-white rounded-lg p-6 max-w-lg">
+                <h2 class="font-bold text-lg mb-2">Donation History</h2>
+                <div id="donationHistory" class="mb-4"></div>
+                <button id="clearHistoryButton" class="bg-red-500 text-white px-4 py-2 rounded-md mb-2">Clear History</button>
+                <button id="closeHistoryModal" class="bg-lime-400 text-black px-4 py-2 rounded-md">Close</button>
             </div>
         </div>
-    </section>
+    </main>
 
     <script>
-       // Initial available balance
-let availableBalance = 5500;
+        let availableBalance = 5500;
 
-// Function to toggle visibility of sections
-function toggleSections(sectionIds) {
-    sectionIds.forEach(sectionId => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.classList.toggle('hidden');
+        document.getElementById('donateButton').addEventListener('click', function() {
+            document.getElementById('donationSection').classList.remove('hidden');
+            document.getElementById('donationSection2').classList.remove('hidden');
+            document.getElementById('donationSection3').classList.remove('hidden');
+        });
+
+        // Update donation function
+        function updateDonation(amountInputId, displayId, errorMessageId) {
+            const amount = parseFloat(document.getElementById(amountInputId).value);
+
+            if (amount > 0 && amount <= availableBalance) {
+                // Update available balance and section total
+                availableBalance -= amount;
+                document.getElementById('availableBalance').innerText = availableBalance + ' BDT';
+                const totalDisplay = document.getElementById(displayId);
+                const currentTotal = parseFloat(totalDisplay.innerText) || 0;
+                totalDisplay.innerText = (currentTotal + amount).toFixed(2) + ' BDT';
+
+                // Show success modal
+                document.getElementById('donationSuccessAmount').innerText = amount.toFixed(2);
+                document.getElementById('successModal').classList.remove('hidden');
+                
+                // Clear input field
+                document.getElementById(amountInputId).value = '';
+                document.getElementById(errorMessageId).classList.add('hidden');
+            } else {
+                // Show error message
+                document.getElementById(errorMessageId).classList.remove('hidden');
+            }
         }
-    });
-}
 
-// Toggle donation sections when "Donate" button is clicked
-document.getElementById('donateButton').addEventListener('click', function() {
-    toggleSections(['donationSection', 'donationSection2']); // Add more sections if necessary
-});
+        document.getElementById('donateNowButton1').addEventListener('click', function() {
+            updateDonation('donationAmount1', 'donationTotalDisplay1', 'errorMessage1');
+            recordDonation(document.getElementById('donationAmount1').value, "Flood at Noakhali, Bangladesh");
+        });
 
-// Add click event listeners for the "Donate Now" buttons
-document.getElementById('donateNowButton1').addEventListener('click', function() {
-    updateDonation('donationAmount1', 'donationTotalDisplay1', 'errorMessage1');
-});
+        document.getElementById('donateNowButton2').addEventListener('click', function() {
+            updateDonation('donationAmount2', 'donationTotalDisplay2', 'errorMessage2');
+            recordDonation(document.getElementById('donationAmount2').value, "Flood Relief in Feni, Bangladesh");
+        });
 
-document.getElementById('donateNowButton2').addEventListener('click', function() {
-    updateDonation('donationAmount2', 'donationTotalDisplay2', 'errorMessage2');
-});
+        document.getElementById('donateNowButton3').addEventListener('click', function() {
+            updateDonation('donationAmount3', 'donationTotalDisplay3', 'errorMessage3');
+            recordDonation(document.getElementById('donationAmount3').value, "Aid for Injured in the Quota Movement");
+        });
 
-// Update donation function
-function updateDonation(amountInputId, displayId, errorMessageId) {
-    const amount = parseFloat(document.getElementById(amountInputId).value);
+        // Close success modal
+        document.getElementById('closeSuccessModal').addEventListener('click', function() {
+            document.getElementById('successModal').classList.add('hidden');
+        });
 
-    if (amount > 0 && amount <= availableBalance) {
-        // Update available balance and section total
-        availableBalance -= amount;
-        document.getElementById('availableBalance').innerText = availableBalance + ' BDT';
-        document.getElementById(displayId).innerText = parseFloat(document.getElementById(displayId).innerText) + amount + ' BDT';
+        // Show donation history when history button is clicked
+        document.getElementById('historyButton').addEventListener('click', function() {
+            document.getElementById('historyModal').classList.remove('hidden');
+        });
 
-        // Show success modal and hide error message
-        document.getElementById('successModal').classList.remove('hidden');
-        document.getElementById(errorMessageId).classList.add('hidden');
+        // Close history modal
+        document.getElementById('closeHistoryModal').addEventListener('click', function() {
+            document.getElementById('historyModal').classList.add('hidden');
+        });
 
-        // Add donation to history
-        addDonationToHistory(amount);
-    } else {
-        // Show error message if the donation amount is invalid
-        document.getElementById(errorMessageId).classList.remove('hidden');
-    }
-}
+        // Clear donation history
+        document.getElementById('clearHistoryButton').addEventListener('click', function() {
+            document.getElementById('donationHistory').innerHTML = '';
+        });
 
-// Close success modal
-document.getElementById('closeSuccessModal').addEventListener('click', function() {
-    document.getElementById('successModal').classList.add('hidden');
-});
-
-// Handle history modal display
-document.getElementById('historyButton').addEventListener('click', function() {
-    document.getElementById('historyModal').classList.remove('hidden');
-});
-document.getElementById('closeHistoryModal').addEventListener('click', function() {
-    document.getElementById('historyModal').classList.add('hidden');
-});
-
-// Add donation to history
-function addDonationToHistory(amount) {
-    const historyContainer = document.getElementById('donationHistory');
-    const timestamp = new Date().toLocaleString();
-    const donationEntry = document.createElement('p');
-    donationEntry.innerText = `Donated ${amount} BDT on ${timestamp}`;
-    historyContainer.appendChild(donationEntry);
-}
-
-// Clear donation history
-document.getElementById('clearHistoryButton').addEventListener('click', function() {
-    document.getElementById('donationHistory').innerHTML = '';
-});
-
-// FAQ toggle
-document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', function() {
-        const body = this.nextElementSibling;
-        const icon = this.querySelector('.accordion-icon i');
-        body.classList.toggle('hidden');
-        if (body.classList.contains('hidden')) {
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-        } else {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
+        // Record donation in history
+        function recordDonation(amount, cause) {
+            const donationHistory = document.getElementById('donationHistory');
+            const newEntry = document.createElement('div');
+            newEntry.classList.add('border', 'p-2', 'rounded-md', 'shadow', 'my-2');
+            newEntry.innerText = `${amount} BDT donated for ${cause}.`;
+            donationHistory.appendChild(newEntry);
         }
-    });
-});
-
     </script>
 </body>
 </html>
-
