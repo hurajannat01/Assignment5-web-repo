@@ -19,7 +19,7 @@
 <body class="lexend-font">
     <header>
         <nav id="navbar" class="flex flex-col md:flex-row items-center justify-between p-4 bg-[#F9F7F3] transition-all duration-300">
-            <a href="#" id="homeButton" class="bg-lime-400 text-black font-semibold px-4 py-2 rounded-md mb-4 md:mb-0 md:mr-4">Home</a>
+            <a href="#" id="homeButton" class="bg-lime-400 text-black font-semibold px-4 py-2 rounded-md mb-4 md:mb-0 md:mr-4">Blog</a>
             <div class="relative flex items-center justify-center mb-4 md:mb-0 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
                 <img src="assets/logo.png" alt="Donate Icon" class="w-6 h-6">
                 <h2 class="ml-2 font-bold text-center">Donate Bangladesh</h2>
@@ -116,17 +116,22 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Success Modal -->
         <div id="successModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-            <div class="bg-white rounded-lg p-6 max-w-xs">
-                <h2 class="font-bold text-lg mb-2">Donation Successful!</h2>
-                <p class="mb-4">You have donated <span id="donationSuccessAmount" class="font-bold"></span> BDT.</p>
-                <button id="closeSuccessModal" class="bg-lime-400 text-black px-4 py-2 rounded-md">Close</button>
+            <div class="bg-white rounded-lg p-8 max-w-sm w-full text-center shadow-lg">
+                <h2 class="font-extrabold text-2xl mb-4 text-[#1D1D1D]">Congrats!</h2>
+                <div class="flex justify-center items-center mb-4">
+                    <img src="assets/coin.png" alt="Currency Icon" class="w-10 h-10 mr-2">
+                </div>
+                <p class="mb-2 text-lg text-[#5F6368]">You have donated for humankind.</p>
+                <p class="font-semibold text-xl text-black">Successfully!</p>
+                <p class="mb-4 text-lg"><span id="donationSuccessAmount" class="font-bold text-[#1D1D1D]"></span> </p>
+                <button id="closeSuccessModal" class="bg-gray-100 text-black font-bold px-6 py-2 rounded-md shadow-sm hover:bg-lime-500 transition duration-300">
+                    Close Confirmation
+                </button>
             </div>
         </div>
-
-        <!-- Donation History Modal -->
+        
+     
         <div id="historyModal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
             <div class="bg-white rounded-lg p-6 max-w-lg">
                 <h2 class="font-bold text-lg mb-2">Donation History</h2>
@@ -146,27 +151,24 @@
             document.getElementById('donationSection3').classList.remove('hidden');
         });
 
-        // Update donation function
+    
         function updateDonation(amountInputId, displayId, errorMessageId) {
             const amount = parseFloat(document.getElementById(amountInputId).value);
 
             if (amount > 0 && amount <= availableBalance) {
-                // Update available balance and section total
                 availableBalance -= amount;
                 document.getElementById('availableBalance').innerText = availableBalance + ' BDT';
                 const totalDisplay = document.getElementById(displayId);
                 const currentTotal = parseFloat(totalDisplay.innerText) || 0;
                 totalDisplay.innerText = (currentTotal + amount).toFixed(2) + ' BDT';
 
-                // Show success modal
                 document.getElementById('donationSuccessAmount').innerText = amount.toFixed(2);
                 document.getElementById('successModal').classList.remove('hidden');
-                
-                // Clear input field
+
                 document.getElementById(amountInputId).value = '';
                 document.getElementById(errorMessageId).classList.add('hidden');
             } else {
-                // Show error message
+
                 document.getElementById(errorMessageId).classList.remove('hidden');
             }
         }
@@ -186,27 +188,23 @@
             recordDonation(document.getElementById('donationAmount3').value, "Aid for Injured in the Quota Movement");
         });
 
-        // Close success modal
         document.getElementById('closeSuccessModal').addEventListener('click', function() {
             document.getElementById('successModal').classList.add('hidden');
         });
 
-        // Show donation history when history button is clicked
+
         document.getElementById('historyButton').addEventListener('click', function() {
             document.getElementById('historyModal').classList.remove('hidden');
         });
 
-        // Close history modal
         document.getElementById('closeHistoryModal').addEventListener('click', function() {
             document.getElementById('historyModal').classList.add('hidden');
         });
 
-        // Clear donation history
         document.getElementById('clearHistoryButton').addEventListener('click', function() {
             document.getElementById('donationHistory').innerHTML = '';
         });
 
-        // Record donation in history
         function recordDonation(amount, cause) {
             const donationHistory = document.getElementById('donationHistory');
             const newEntry = document.createElement('div');
